@@ -4,13 +4,13 @@ console.log("=== let 예제 ===");
 let title = "기초 JS";
 console.log("제목:", title);
 
-title = "심화 JS"; // 재할당 가능
+title = "심화 JS"; // 재할당은 되고 재선언은 안됨
 console.log("수정된 제목:", title);
 
 function letTest() {
   if (true) {
     let x = 20;
-    console.log("x (블록 내부):", x);
+    console.log("x (블록 내부):", x); // 블록 단위 스코프.
   }
   // console.log("x (외부):", x); // ReferenceError
 }

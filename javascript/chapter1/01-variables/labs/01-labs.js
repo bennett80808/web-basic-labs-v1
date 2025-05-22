@@ -2,16 +2,15 @@
 // 목표: var / let / const의 스코프 차이 이해
 
 function scopePractice() {
-    if (true) {
-      var x = 10;
-      let y = 20;
-      const z = 30;
-    }
-  
-    console.log("x:", x); // ?
-    console.log("y:", y); // ?
-    console.log("z:", z); // ?
+  if (true) {
+    var x = 10;
+    let y = 20;
+    const z = 30;
   }
-  
-  scopePractice();
-  
+
+  console.log("x:", x); // 10
+  console.log("y:", y); // 안됨
+  console.log("z:", z); // 안됨
+}
+
+scopePractice();

@@ -1,9 +1,10 @@
 // 아래 코드에서 각각의 연산 결과가 true인지 false인지 적어보세요.
 
-console.log(5 == "5");
-console.log(5 === "5");
-console.log(7 > 2 && 2 > 7);
-console.log(0 == false);
+console.log(5 == "5"); // true
+console.log(5 === "5"); // false
+console.log(7 > 2 && 2 > 7); // false
+console.log(0 == false); // true
+console.log("0" == false); // true
 
 let x = false;
 let y = true;
