@@ -5,7 +5,7 @@ console.log("hoistedVar:", hoistedVar);
 // undefined 값이 초기화 되지 않은 상태
 var hoistedVar = "var 변수";
 
-// console.log("hoistedLet:", hoistedLet); // ❌ Error
+// console.log("hoistedLet:", hoistedLet); // Error
 let hoistedLet = "let 변수";
 
 console.log("hoistedLet:", hoistedLet);

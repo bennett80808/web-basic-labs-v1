@@ -3,8 +3,12 @@
 
 const student = {
   // 여기에 name, age, major 추가
+  name: "김상우",
+  age: 29,
+  major: "컴공",
 };
 
+console.log(student);
 // 예시 출력:
 // 이름: 윤학생
 // 나이: 21

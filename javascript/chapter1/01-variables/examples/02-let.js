@@ -10,8 +10,14 @@ console.log("수정된 제목:", title);
 function letTest() {
   if (true) {
     let x = 20;
+<<<<<<< HEAD
     console.log("x (블록 내부):", x); // 블록 단위 스코프.
+=======
+    var y = 10;
+    console.log("x (블록 내부):", x);
+>>>>>>> upstream/main
   }
-  // console.log("x (외부):", x); // ReferenceError
+  // console.log(y);
+  console.log("x (외부):", x); // ReferenceError
 }
 letTest();

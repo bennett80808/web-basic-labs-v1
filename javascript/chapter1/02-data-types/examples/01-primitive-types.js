@@ -2,14 +2,23 @@
 console.log("=== 기본 자료형 ===");
 
 let name = "지수"; // 문자열
+<<<<<<< HEAD
 name = `지수${2 + 3}`;
 console.log(name);
+=======
+name = "지수";
+name = `지수 ${2 + 3}`;
+>>>>>>> upstream/main
 let age = 25; // 숫자
 let isStudent = true; // 불리언
 let nothing = null; // null
 let unknown; // undefined
 let symbol = Symbol("id"); // 심볼
 
+<<<<<<< HEAD
+=======
+console.log(name);
+>>>>>>> upstream/main
 console.log(typeof name); // string
 console.log(typeof age); // number
 console.log(typeof isStudent); // boolean
