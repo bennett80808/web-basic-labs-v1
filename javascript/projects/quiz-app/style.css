@@ -60,6 +60,10 @@ select {
   min-height: 110px;
   margin-bottom: 18px;
 }
+#quiz-box ul {
+  list-style-type: none;
+  padding-left: 0;
+}
 #quiz-box label {
   display: block;
   padding: 10px 13px;

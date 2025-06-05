@@ -9,3 +9,13 @@ const users = [
 ];
 
 // TODO: find 사용
+
+const nUser = users.find((user) => user.email.includes("naver.com"));
+console.log(nUser);
+
+//const result = array.find(callback);
+// find()는 조건을 만족하는 첫 번째 요소를 찾아서 반환합니다.
+
+// 중복된 값이 있더라도 가장 먼저 조건을 만족하는 요소 하나만 반환합니다.
+
+// 조건을 만족하는 요소가 없으면 undefined를 반환합니다.

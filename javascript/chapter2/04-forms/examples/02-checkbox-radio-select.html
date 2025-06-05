@@ -25,6 +25,7 @@
       radios.forEach((r) => r.addEventListener("change", update));
 
       function update() {
+        // ?. 옵셔널 체이닝
         const pay = Array.from(radios).find((r) => r.checked)?.value;
         result.textContent = `뉴스레터: ${
           chk.checked ? "O" : "X"

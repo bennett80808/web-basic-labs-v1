@@ -5,3 +5,5 @@ TODO: 사용자 이름을 배열로 저장하고, 쉼표(", ")로 구분된 문�
 
 const users = ["윤유저", "이유저", "김유저"];
 // TODO: join() 사용
+const result = users.join(", ");
+console.log(result);

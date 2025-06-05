@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 예제</title>
+    <style>
+      .dark {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <button id="btn">Click Me!</button>
+    <script>
+      // 버튼 접근 -> 이벤트 리스너 등록록
+      document.querySelector("#btn").addEventListener("click", () => {
+        // alert("클릭 되었습니다");
+        // 다크모드(토글)
+        document.body.classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>

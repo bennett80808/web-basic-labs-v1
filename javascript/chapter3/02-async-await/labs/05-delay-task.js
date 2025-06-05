@@ -6,3 +6,18 @@
 - delay(ms) 함수는 Promise로 만들어도 됨
 - await delay(1000) 후 console.log()
 */
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(); // 프로미스 상태가 성공
+    }, ms);
+  });
+}
+
+async function main() {
+  console.log("main 함수 실행");
+  await delay(1000);
+  console.log("대기완료");
+}
+
+main();

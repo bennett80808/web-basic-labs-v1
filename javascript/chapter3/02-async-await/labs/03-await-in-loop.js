@@ -7,3 +7,20 @@ const userIds = [1, 2, 3];
 - async/await와 for...of 문 사용
 - (순서대로 출력되어야 함)
 */
+const userIds = [1, 2, 3];
+
+async function fetchUsersInOrder() {
+  for (const id of userIds) {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/users/${id}`
+      );
+      const user = await response.json();
+      console.log("유저정보", user);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+}
+
+fetchUsersInOrder();

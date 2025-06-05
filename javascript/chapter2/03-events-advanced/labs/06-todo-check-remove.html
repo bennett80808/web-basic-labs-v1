@@ -14,35 +14,33 @@
     <ul id="todoList"></ul>
 
     <script>
-      const input = document.getElementById("todoInput");
-      const addBtn = document.getElementById("addBtn");
-      const todoList = document.getElementById("todoList");
+      input = document.getElementById("todoInput");
+      addBtn = document.getElementById("addBtn");
+      todoList = document.getElementById("todoList");
 
       addBtn.addEventListener("click", () => {
         const text = input.value.trim();
-        if (text === "") return;
+        if (text == "") return;
 
         const li = document.createElement("li");
         li.innerHTML = `
-      <span class="todo-text">${text}</span>
-      <button>✅</button>
-      <button>❌</button>
-    `;
+          <span>${text}</span>
+          <button class="check">✅</button>
+          <button class="delete">❌</button>
+        `;
+
         todoList.appendChild(li);
         input.value = "";
       });
-
       todoList.addEventListener("click", (e) => {
-        if (e.target.tagName !== "BUTTON") return;
+        const target = e.target;
+        const li = target.closest("li");
 
-        const li = e.target.closest("li");
-        const textEl = li.querySelector(".todo-text");
-
-        if (e.target.textContent === "✅") {
-          textEl.classList.toggle("done");
+        if (target.classList.contains("check")) {
+          li.querySelector("span").classList.toggle("done");
         }
-
-        if (e.target.textContent === "❌") {
+        if (target.classList.contains("delete")) {
+          // 삭제
           li.remove();
         }
       });

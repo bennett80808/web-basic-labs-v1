@@ -26,3 +26,52 @@ getUserId((err, userId) => {
   });
 });
 */
+function getUserIdPromise(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (userId > 0) {
+        resolve(userId); // 성공 시
+      } else {
+        reject("❌ 유효하지 않은 ID");
+      }
+    }, 500);
+  });
+}
+
+function getUserProfilePromise(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (userId) {
+        resolve({ userId, nickname: "윤유저" });
+      } else {
+        reject("❌ 프로필을 찾을 수 없음");
+      }
+    }, 500);
+  });
+}
+
+function getUserOrdersPromise(profile) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (profile.nickname) {
+        resolve([`${profile.nickname}의 주문1`, `${profile.nickname}의 주문2`]);
+      } else {
+        reject("❌ 주문 없음");
+      }
+    }, 500);
+  });
+}
+
+getUserIdPromise(8)
+  .then((userId) => {
+    return getUserProfilePromise(userId);
+  })
+  .then((profile) => {
+    return getUserOrdersPromise(profile);
+  })
+  .then((orders) => {
+    console.log("최종 주문 목록:", orders);
+  })
+  .catch((err) => {
+    console.error("에러 발생:", err);
+  });

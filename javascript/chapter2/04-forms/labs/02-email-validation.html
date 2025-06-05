@@ -8,6 +8,16 @@
     <p id="error"></p>
     <script>
       // TODO: .includes("@") 검사, 올바르면 "확인됨", 아니면 에러 메시지
+      const emailForm = document.getElementById("emailForm");
+      const email = document.getElementById("email");
+      const error = document.getElementById("error");
+
+      emailForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        email.value.includes("@")
+          ? (error.textContent = "확인됨")
+          : (error.textContent = "에러");
+      });
     </script>
   </body>
 </html>

@@ -19,6 +19,30 @@
     2. 불러온 데이터에서 title 10개만 추려서 <ol>에 <li>로 출력하세요.
     3. 에러 발생 시 alert("게시글을 불러올 수 없습니다.")를 띄우세요.
     */
+      const fetchBtn = document.getElementById("fetchPosts");
+      const postList = document.getElementById("postList");
+
+      fetchBtn.addEventListener("click", async () => {
+        try {
+          const response = await axios.get(
+            "https://jsonplaceholder.typicode.com/posts"
+          );
+          const posts = response.data.slice(0, 10); // 상위 10개만
+
+          // 기존 목록 초기화 (중복 출력 방지)
+          postList.innerHTML = "";
+
+          // 제목을 li로 추가
+          posts.forEach((post) => {
+            const li = document.createElement("li");
+            li.textContent = post.title;
+            postList.appendChild(li);
+          });
+        } catch (error) {
+          alert("게시글을 불러올 수 없습니다.");
+          console.error("에러 내용:", error);
+        }
+      });
     </script>
   </body>
 </html>

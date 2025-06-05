@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="outer">
+      <button class="categoryBtn">👕 의류</button>
+      <button class="categoryBtn">👟 신발</button>
+      <button class="categoryBtn">🎒 가방</button>
+    </ul>
+    <script>
+      const outer = document.getElementById("outer");
+      outer.addEventListener("click", (e) => {
+        alert(e.target.textContent);
+      });
+
+      outer.innerHTML += '<button class="categoryBtn">지갑</button>';
+
+      // 부모로 이벤트를 걸어놔야 동적으로 새로운 자식을 생성해도 이벤트가 적용됨.
+    </script>
+  </body>
+</html>

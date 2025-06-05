@@ -10,3 +10,45 @@ function asyncJob(ms) {
 
 각 방식에서 콘솔로 각 작업의 시작/끝, 전체 소요시간을 출력해보세요.
 */
+function asyncJob(ms) {
+  return new Promise((resolve) => {
+    console.log(`⏳ ${ms}ms 작업 시작`);
+    setTimeout(() => {
+      console.log(`✅ ${ms}ms 작업 완료`);
+      resolve(ms);
+    }, ms);
+  });
+}
+
+//순차
+async function runSequential() {
+  const jobs = [1000, 2000, 3000]; // ms 단위
+  const start = Date.now();
+
+  for (const ms of jobs) {
+    await asyncJob(ms);
+  }
+
+  const end = Date.now();
+  console.log(`🕐 순차 실행 시간: ${end - start}ms`);
+}
+
+//병렬
+async function runParallel() {
+  const jobs = [1000, 2000, 3000]; // ms 단위
+  const start = Date.now();
+
+  const promises = jobs.map((ms) => asyncJob(ms));
+  await Promise.all(promises);
+
+  const end = Date.now();
+  console.log(`🕐 병렬 실행 시간: ${end - start}ms`);
+}
+
+(async () => {
+  console.log("\n--- [1] 순차 실행 시작 ---");
+  await runSequential();
+
+  console.log("\n--- [2] 병렬 실행 시작 ---");
+  await runParallel();
+})();

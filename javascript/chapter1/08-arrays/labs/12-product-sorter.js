@@ -8,4 +8,7 @@ const products = [
   { name: "Phone", price: 1000000 },
 ];
 
-// TODO: sort 사용 (price 기준 오름차순)
+// TODO: sort 사용 (price 기준 오름차순) b-a : 내림차순
+products.sort((a, b) => a.price - b.price);
+
+console.log(products);

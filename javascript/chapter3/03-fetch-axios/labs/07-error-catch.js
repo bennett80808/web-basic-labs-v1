@@ -6,3 +6,41 @@
 
 - 에러 메시지와 HTTP 상태 코드를 콘솔에 출력
 */
+import axios from "axios";
+
+async function fetchWithAxios() {
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/404-not-found"
+    );
+    console.log(response.data);
+  } catch (err) {
+    // axios는 HTTP 오류도 catch에서 잡힘
+    console.error("❌ axios 에러 발생!");
+    console.error("에러 메시지:", err.message);
+    console.error("HTTP 상태코드:", err.response?.status); // optional chaining 사용
+  }
+}
+
+fetchWithAxios();
+
+async function fetchWithFetch() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/404-not-found"
+    );
+
+    // fetch는 404도 성공처럼 처리함 → 수동으로 체크 필요
+    if (!response.ok) {
+      throw new Error(`HTTP 상태코드: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.error("❌ fetch 에러 발생!");
+    console.error("에러 메시지:", err.message);
+  }
+}
+
+fetchWithFetch();
